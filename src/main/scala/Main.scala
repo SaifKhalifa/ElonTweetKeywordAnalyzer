@@ -31,7 +31,7 @@ object Main {
     println(s"Analyzing keywords: ${keywords.mkString(", ")}")
 
     val conf = new SparkConf()
-      .setAppName("Elon Tweet Keyword Analyzer")
+      .setAppName("Elon Musk's Tweets Keyword Analyzer")
       .setMaster("local[*]")
 
     val sc = new SparkContext(conf)
@@ -79,7 +79,7 @@ object Main {
     val variance = wordCounts.map(w => (w - mean) * (w - mean)).sum() / totalTweets
     val stdDev = sqrt(variance)
 
-    // Print results (plain text for Bash compatibility)
+    // Print results
     println("\n--- Daily Keyword Distribution ---")
     dailyDistribution.collect().foreach { case (k, d, c) => println(s"($k, $d, $c)") }
 
